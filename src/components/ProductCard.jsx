@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ProgressiveImage from 'react-progressive-image'
-import SoldImage from '../assets/sold.svg'
 import PlaceholderImage from '../assets/placeholder-image.png'
 
 const ProductCard = ({ product, showTitle = true }) => {
@@ -30,9 +29,6 @@ const ProductCard = ({ product, showTitle = true }) => {
             <Title>{product.title}</Title>
           ) : null
         }
-        {/* {
-          product.status === 'SOLD' ? <SoldImageStyled src={SoldImage} alt="Sold" /> : null
-        } */}
       </Container>
     </Link>
   )
@@ -66,14 +62,6 @@ const ProductImage = styled.img`
   object-fit: contain;
   max-width: 100%;
   height: 300px;
-`
-
-const SoldImageStyled = styled.img`
-  width: 40px !important;
-  height: 40px !important;
-  position: absolute;
-  top: 0;
-  right: 40px;
 `
 
 export default ProductCard

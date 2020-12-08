@@ -39,7 +39,7 @@ const Profile = ({ history }) => {
   }
 
   const handleChangePage = ({ selected }) => {
-    history.push(`/category/${params.category}/${selected + 1}`)
+    history.push(`/profile/${selected + 1}`)
   }
 
   return (

@@ -12,13 +12,19 @@ const useSocket = () => {
   const { chats, setChats } = useChatContext();
 
   useEffect(() => {
-    socket = socketClient(ENDPOINT);
+    socket = socketClient(ENDPOINT, {
+      path: "/mysocket",
+    });
     if (user) {
       socket.emit("initial", { userId: user.id });
       socket.on("restore chat", (chats) => {
         setChats(chats);
       });
     }
+    socket.on("error", function (err) {
+      console.log("Socket.IO Error");
+      console.log(err);
+    });
   }, [setChats, user]);
 
   useEffect(() => {

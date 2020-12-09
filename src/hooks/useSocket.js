@@ -14,6 +14,7 @@ const useSocket = () => {
   useEffect(() => {
     socket = socketClient(ENDPOINT, {
       path: "/mysocket",
+      transport: ["websocket"],
     });
     if (user) {
       socket.emit("initial", { userId: user.id });

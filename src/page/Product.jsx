@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory, Redirect, Link } from 'react-router-dom'
+import { Helmet } from "react-helmet";
 import styled from 'styled-components'
 import ProgressiveImage from 'react-progressive-image'
 import { useUserContext } from '../context/userContext'
@@ -71,6 +72,14 @@ const Product = ({ match, socket }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta property="og:url" content={`https://jjams.co/deal/product/${product.slug}`} />
+        <meta property="og:title" content={`${product.title}`} />
+        <meta property="og:description" content={`${product.description}`} />
+        <meta property="og:image" content={`${process.env.REACT_APP_API_URL}/uploads/product/${product.images[0].url}`} />
+        <title>{product.title} | deal</title>
+      </Helmet>
       <Container className="container content">
         <ProductImageWrapper>
           {
